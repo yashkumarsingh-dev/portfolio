@@ -20,7 +20,7 @@ const Hero = () => {
     <section
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat text-white px-4"
       style={{
-        backgroundImage: `url('/bg.jpg')`,
+        backgroundImage: `url('https://images.pexels.com/photos/1001917/pexels-photo-1001917.jpeg?auto=compress&cs=tinysrgb&w=600')`,
       }}
     >
       <div className="text-center bg-black bg-opacity-50 p-8 rounded-xl shadow-lg">
