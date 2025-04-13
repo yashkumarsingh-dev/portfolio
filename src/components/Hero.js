@@ -20,11 +20,11 @@ const Hero = () => {
     <section
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat text-white px-4"
       style={{
-        backgroundImage: `url('https://images.pexels.com/photos/1001917/pexels-photo-1001917.jpeg?auto=compress&cs=tinysrgb&w=600')`,
+        backgroundImage: `url('https://images.pexels.com/photos/1074882/pexels-photo-1074882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
       }}
     >
       <div className="text-center bg-black bg-opacity-50 p-8 rounded-xl shadow-lg">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+        <h1 className="text-4xl sm:text-5xl font-serif mb-4">
           <span ref={typedRef} className="text-yellow-200"></span>
         </h1>
         <p className="text-lg sm:text-xl max-w-xl mx-auto mb-4">
