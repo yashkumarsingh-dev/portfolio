@@ -1,7 +1,7 @@
 import React from "react";
 import heroProfile from "../../assets/hero-profile.png";
 
-export default function Hero(){
+export default function Hero() {
   return (
     <section
       id="home"
