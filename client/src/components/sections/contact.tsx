@@ -1,89 +1,41 @@
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { useState } from "react";
 import { MapPin, Clock, Handshake, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
 
 export default function Contact() {
-  const [ref, isIntersecting] = useIntersectionObserver({
-    threshold: 0.1,
-  });
+  // Dummy intersection observer for animation only
+  const [ref, isIntersecting] = [null, true];
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const { toast } = useToast();
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "" });
-    },
-    onError: (error) => {
-      toast({
-        title: "Error sending message",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Please fill in all fields",
-        description: "Name, email, and message are required.",
-        variant: "destructive",
-      });
-      return;
-    }
-    contactMutation.mutate(formData);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const form = formRef.current;
+    if (!form) return;
+    const data = new FormData(form);
+    await fetch("https://formspree.io/f/xgvyqgvj", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
     });
+    // Scroll to hero section
+    document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+    // Optionally reset form
+    form.reset();
   };
 
   return (
     <section
       id="contact"
       ref={ref}
-      className="section-padding bg-portfolio-primary"
-    >
+      className="section-padding bg-portfolio-primary">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-4">
             Get In <span className="text-portfolio-accent">Touch</span>
           </h2>
@@ -94,8 +46,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+            transition={{ duration: 0.8, delay: 0.2 }}>
             <h3 className="font-montserrat font-bold text-2xl mb-6">
               Let's Work Together!
             </h3>
@@ -145,77 +96,59 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            transition={{ duration: 0.8, delay: 0.4 }}>
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label
+                <label
                   htmlFor="name"
-                  className="text-gray-300 font-montserrat font-semibold"
-                >
+                  className="text-gray-300 font-montserrat font-semibold">
                   Name
-                </Label>
-                <Input
+                </label>
+                <input
                   id="name"
                   name="name"
                   type="text"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
-                  className="mt-2 bg-portfolio-gray-850 border-gray-700 focus:border-portfolio-accent text-white"
+                  className="mt-2 bg-portfolio-gray-850 border-gray-700 focus:border-portfolio-accent text-white w-full rounded p-3"
                 />
               </div>
 
               <div>
-                <Label
+                <label
                   htmlFor="email"
-                  className="text-gray-300 font-montserrat font-semibold"
-                >
+                  className="text-gray-300 font-montserrat font-semibold">
                   Email
-                </Label>
-                <Input
+                </label>
+                <input
                   id="email"
                   name="email"
                   type="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
-                  className="mt-2 bg-portfolio-gray-850 border-gray-700 focus:border-portfolio-accent text-white"
+                  className="mt-2 bg-portfolio-gray-850 border-gray-700 focus:border-portfolio-accent text-white w-full rounded p-3"
                 />
               </div>
 
               <div>
-                <Label
+                <label
                   htmlFor="message"
-                  className="text-gray-300 font-montserrat font-semibold"
-                >
+                  className="text-gray-300 font-montserrat font-semibold">
                   Message
-                </Label>
-                <Textarea
+                </label>
+                <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={5}
-                  className="mt-2 bg-portfolio-gray-850 border-gray-700 focus:border-portfolio-accent text-white resize-none"
+                  className="mt-2 bg-portfolio-gray-850 border-gray-700 focus:border-portfolio-accent text-white w-full rounded p-3 resize-none"
                 />
               </div>
 
-              <Button
+              <button
                 type="submit"
-                disabled={contactMutation.isPending}
-                className="w-full bg-gradient-to-r from-portfolio-accent to-portfolio-purple hover:from-portfolio-accent/80 hover:to-portfolio-purple/80 text-portfolio-primary font-montserrat font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-portfolio-accent/25"
-              >
-                {contactMutation.isPending ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </>
-                )}
-              </Button>
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#00F6FF] to-portfolio-purple hover:from-[#00F6FF]/80 hover:to-portfolio-purple/80 text-white font-montserrat font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                <Send className="w-5 h-5" />
+                Send Message
+              </button>
             </form>
           </motion.div>
         </div>

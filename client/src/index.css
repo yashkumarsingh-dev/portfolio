@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,7 +27,7 @@
   --input: hsl(0, 0%, 16.5%);
   --ring: hsl(183, 100%, 50%);
   --radius: 0.5rem;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: hsl(0, 0%, 10.2%);
   --portfolio-secondary: hsl(0, 0%, 5.9%);
@@ -60,14 +62,25 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-portfolio-primary text-foreground font-inter antialiased;
     scroll-behavior: smooth;
+    background-color: #18191a;
+    font-family: "Outfit", Inter, Montserrat, sans-serif;
   }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Outfit", Inter, Montserrat, sans-serif;
   }
 }
 
@@ -75,139 +88,145 @@
   .section-padding {
     @apply py-24 px-4;
   }
-  
+
   .section-padding-mobile {
     @apply py-16 px-4;
   }
-  
+
   .container-max {
     @apply max-w-6xl mx-auto;
   }
-  
+
   .gradient-text {
     @apply bg-gradient-to-r from-portfolio-accent to-portfolio-purple bg-clip-text text-transparent;
   }
-  
+
   .gradient-border {
     @apply bg-gradient-to-r from-portfolio-accent to-portfolio-purple p-[1px] rounded-xl;
   }
-  
+
   .glass-card {
     @apply bg-portfolio-gray-850/50 backdrop-blur-sm border border-white/10 rounded-xl;
   }
-  
+
   .nav-link {
     @apply relative text-gray-300 hover:text-portfolio-accent transition-colors duration-300;
   }
-  
+
   .nav-link::after {
     @apply content-[''] absolute -bottom-1 left-0 w-0 h-0.5 bg-portfolio-accent transition-all duration-300;
   }
-  
+
   .nav-link:hover::after {
     @apply w-full;
   }
-  
+
   .skill-card {
     @apply bg-portfolio-gray-850 rounded-xl p-6 text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
   }
-  
+
   .skill-card:hover {
     background-color: hsl(0, 0%, 16.5%, 0.8);
     box-shadow: 0 0 20px hsl(183, 100%, 50%, 0.1);
   }
-  
+
   .project-card {
     @apply bg-portfolio-gray-850 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl;
   }
-  
+
   .project-card:hover {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 20px hsl(183, 100%, 50%, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 20px hsl(183, 100%, 50%, 0.1);
   }
-  
+
   .tool-badge {
     @apply bg-portfolio-secondary px-6 py-3 rounded-full border border-gray-700 hover:border-portfolio-accent transition-colors duration-300;
   }
-  
+
   .btn-primary {
     @apply bg-portfolio-accent text-portfolio-primary px-8 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
   }
-  
+
   .btn-primary:hover {
     background-color: hsl(183, 100%, 50%, 0.8);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 20px hsl(183, 100%, 50%, 0.25);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 20px hsl(183, 100%, 50%, 0.25);
   }
-  
+
   .btn-secondary {
     @apply border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-portfolio-primary px-8 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 transform hover:scale-105;
   }
-  
+
   .btn-gradient {
     @apply bg-gradient-to-r from-portfolio-accent to-portfolio-purple text-portfolio-primary font-montserrat font-semibold py-3 rounded-xl transition-all duration-300;
   }
-  
+
   .btn-gradient:hover {
-    background: linear-gradient(to right, hsl(183, 100%, 50%, 0.8), hsl(281, 87%, 56%, 0.8));
+    background: linear-gradient(
+      to right,
+      hsl(183, 100%, 50%, 0.8),
+      hsl(281, 87%, 56%, 0.8)
+    );
   }
 }
 
 @layer utilities {
   .font-montserrat {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
-  
+
   .font-inter {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
-  
+
   .text-portfolio-primary {
     color: var(--portfolio-primary);
   }
-  
+
   .text-portfolio-secondary {
     color: var(--portfolio-secondary);
   }
-  
+
   .text-portfolio-accent {
     color: var(--portfolio-accent);
   }
-  
+
   .text-portfolio-purple {
     color: var(--portfolio-purple);
   }
-  
+
   .bg-portfolio-primary {
-    background-color: var(--portfolio-primary);
+    background-color: #18191a !important;
   }
-  
+
   .bg-portfolio-secondary {
-    background-color: var(--portfolio-secondary);
+    background-color: #18191a !important;
   }
-  
+
   .bg-portfolio-accent {
     background-color: var(--portfolio-accent);
   }
-  
+
   .bg-portfolio-purple {
     background-color: var(--portfolio-purple);
   }
-  
+
   .bg-portfolio-gray-850 {
-    background-color: var(--portfolio-gray-850);
+    background-color: #232526 !important;
   }
-  
+
   .border-portfolio-accent {
     border-color: var(--portfolio-accent);
   }
-  
+
   .border-portfolio-purple {
     border-color: var(--portfolio-purple);
   }
-  
+
   .shadow-portfolio-accent {
     box-shadow: 0 0 20px var(--portfolio-accent);
   }
-  
+
   .shadow-portfolio-purple {
     box-shadow: 0 0 20px var(--portfolio-purple);
   }
@@ -226,7 +245,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -235,7 +255,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px var(--portfolio-accent);
   }
   50% {

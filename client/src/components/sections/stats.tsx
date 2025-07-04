@@ -3,10 +3,10 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useEffect, useState } from "react";
 
 const stats = [
-  { value: 25, label: "Projects Completed", color: "text-portfolio-accent" },
-  { value: 12, label: "Technologies Mastered", color: "text-portfolio-purple" },
-  { value: 500, label: "Problems Solved", color: "text-portfolio-accent" },
-  { value: 2, label: "Years Experience", color: "text-portfolio-purple" },
+  { value: 5, label: "Projects Completed", color: "text-portfolio-accent" },
+  { value: 20, label: "Technologies Mastered", color: "text-portfolio-purple" },
+  { value: 100, label: "Problems Solved", color: "text-portfolio-accent" },
+  { value: 0, label: "Years Experience", color: "text-portfolio-purple" },
 ];
 
 function Counter({ value, isVisible }: { value: number; isVisible: boolean }) {

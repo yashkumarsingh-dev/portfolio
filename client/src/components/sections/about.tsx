@@ -10,79 +10,58 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="section-padding bg-portfolio-secondary"
-    >
-      <div className="container-max">
+      className="section-padding bg-portfolio-secondary flex flex-col items-center justify-center min-h-screen">
+      <div className="container-max w-full flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-4">
             About <span className="text-portfolio-accent">Me</span>
           </h2>
           <div className="w-24 h-1 bg-portfolio-accent mx-auto"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center"
-          >
-            <div className="relative inline-block">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400"
-                alt="Professional headshot"
-                className="rounded-full w-64 h-64 mx-auto object-cover border-4 border-portfolio-accent/30 shadow-2xl"
-              />
-              <div className="absolute -inset-4 bg-gradient-to-r from-portfolio-accent/20 to-portfolio-purple/20 rounded-full blur-xl animate-pulse-glow"></div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-gray-300 leading-relaxed"
-          >
-            <p className="mb-6">
-              I'm a recent{" "}
-              <span className="text-portfolio-accent font-semibold">
-                MCA graduate
-              </span>{" "}
-              from Birla Institute of Technology, Mesra (Off-Campus, Noida),
-              with a solid background in software development, web technologies,
-              and database management.
-            </p>
-            <p className="mb-6">
-              Comfortable with{" "}
-              <span className="text-portfolio-accent font-semibold">
-                Java, Python, C++, and the MERN stack
-              </span>
-              . I enjoy solving problems and love turning ideas into real,
-              working solutions.
-            </p>
-            <p>
-              Passionate about{" "}
-              <span className="text-portfolio-purple font-semibold">
-                AI/ML technologies
-              </span>{" "}
-              and always eager to learn new frameworks and tools that can
-              enhance my development workflow.
-            </p>
-          </motion.div>
-        </div>
+        {/* Centered About Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-lg text-gray-300 leading-relaxed max-w-2xl w-full text-center mx-auto">
+          <p className="mb-6">
+            I'm a recent{" "}
+            <span className="text-portfolio-accent font-semibold">
+              MCA graduate
+            </span>{" "}
+            from Birla Institute of Technology, Mesra (Off-Campus, Noida), with
+            a solid background in software development, web technologies, and
+            database management.
+          </p>
+          <p className="mb-6">
+            Comfortable with{" "}
+            <span className="text-portfolio-accent font-semibold">
+              Java, Python, C++, and the MERN stack
+            </span>
+            . I enjoy solving problems and love turning ideas into real, working
+            solutions.
+          </p>
+          <p>
+            Passionate about{" "}
+            <span className="text-portfolio-purple font-semibold">
+              AI/ML technologies
+            </span>{" "}
+            and always eager to learn new frameworks and tools that can enhance
+            my development workflow.
+          </p>
+        </motion.div>
 
         {/* Education Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-portfolio-gray-850 rounded-2xl p-8"
-        >
+          className="bg-portfolio-gray-850 rounded-2xl p-8 mt-16 w-full">
           <h3 className="font-montserrat font-bold text-2xl mb-8 text-center">
             Education Timeline
           </h3>

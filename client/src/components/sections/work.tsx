@@ -1,29 +1,31 @@
+import React from "react";
 import { motion } from "framer-motion";
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "AI Developer Chat App",
+    title: "AI Developer - MERN Chat App",
     period: "01/2025–Present",
     description:
-      "MERN stack application with Google Gemini AI integration for smart replies and code suggestions. Features real-time chat with Socket.io and JWT authentication.",
+      "Developed a MERN-stack real-time chat web application with Gemini AI Agentfor smart replies, syntax highlighting, code sharing, smart debugging, JWT/OAuth authentication, Socket.io messaging, and responsive to all devices, modular architecture.",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-    technologies: ["React", "Node.js", "MongoDB", "AI/ML"],
+      "https://images.unsplash.com/photo-1625314887424-9f190599bd56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fEFJfGVufDB8fDB8fHww",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
     gradient: "from-portfolio-accent to-portfolio-purple",
     badgeColor: "bg-portfolio-accent/20 text-portfolio-accent",
+    github: "https://github.com/yashkumarsingh-dev/AI-Developer",
   },
   {
-    title: "Task Management System",
-    period: "05/2024–Present",
+    title: "Military Assets Management System",
+    period: "06/2025–07/2025",
     description:
-      "Full-stack MERN application with real-time updates, task categorization, and user authentication. Features drag-and-drop interface and progress tracking.",
+      "Built a full-stack app with React, Express, Node.js, and PostgreSQL for managing military assets, featuring tracking, maintenance scheduling, dashboards, and role-based access.",
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-    technologies: ["React", "Express", "MongoDB", "Real-time"],
+      "https://plus.unsplash.com/premium_photo-1661901234139-d833950e05e0?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    technologies: ["React", "Express", "PostgreSQL", "Real-time"],
     gradient: "from-portfolio-purple to-portfolio-accent",
     badgeColor: "bg-portfolio-purple/20 text-portfolio-purple",
+    github: "https://github.com/yashkumarsingh-dev/military-assets",
   },
   {
     title: "Forest Fire Detection",
@@ -31,31 +33,29 @@ const projects = [
     description:
       "Python-based machine learning system that predicts forest fire likelihood using environmental factors like temperature, humidity, and oxygen levels.",
     image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      "https://images.unsplash.com/photo-1511027643875-5cbb0439c8f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwZmlyZXxlbnwwfHwwfHx8MA%3D%3D",
     technologies: ["Python", "Machine Learning", "Environmental"],
     gradient: "from-green-500 to-portfolio-accent",
     badgeColor: "bg-green-500/20 text-green-400",
+    github: "",
   },
 ];
 
 export default function Work() {
-  const [ref, isIntersecting] = useIntersectionObserver({
-    threshold: 0.1,
-  });
+  // Dummy intersection observer for animation only
+  const [ref, isIntersecting] = [null, true];
 
   return (
     <section
       id="work"
       ref={ref}
-      className="section-padding bg-portfolio-secondary"
-    >
+      className="section-padding bg-portfolio-secondary">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-4">
             Featured <span className="text-portfolio-accent">Work</span>
           </h2>
@@ -69,8 +69,7 @@ export default function Work() {
               initial={{ opacity: 0, y: 30 }}
               animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="project-card group"
-            >
+              className="project-card group">
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -89,7 +88,8 @@ export default function Work() {
                   <h3 className="font-montserrat font-bold text-xl">
                     {project.title}
                   </h3>
-                  <span className={`text-xs px-2 py-1 rounded-full ${project.badgeColor}`}>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full ${project.badgeColor}`}>
                     {project.period}
                   </span>
                 </div>
@@ -99,20 +99,31 @@ export default function Work() {
                     <span
                       key={tech}
                       className={`px-3 py-1 rounded-full text-sm ${
-                        tech === "AI/ML" || tech === "Real-time" || tech === "Environmental"
+                        tech === "AI/ML" ||
+                        tech === "Real-time" ||
+                        tech === "Environmental"
                           ? "bg-portfolio-purple/20 text-portfolio-purple"
                           : "bg-portfolio-accent/20 text-portfolio-accent"
-                      }`}
-                    >
+                      }`}>
                       {tech}
                     </span>
                   ))}
                 </div>
-                <button
-                  className={`w-full bg-gradient-to-r ${project.gradient} hover:opacity-80 text-portfolio-primary font-montserrat font-semibold py-3 rounded-xl transition-all duration-300`}
-                >
-                  View Project
-                </button>
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full block text-center bg-gradient-to-r from-[#00F6FF] to-portfolio-purple hover:from-[#00F6FF]/80 hover:to-portfolio-purple/80 text-white font-montserrat font-semibold py-3 rounded-xl transition-all duration-300">
+                    View Project
+                  </a>
+                ) : (
+                  <button
+                    className="w-full bg-gradient-to-r from-[#00F6FF] to-portfolio-purple text-white font-montserrat font-semibold py-3 rounded-xl opacity-50 cursor-not-allowed"
+                    disabled>
+                    View Project
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}

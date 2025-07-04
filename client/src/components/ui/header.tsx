@@ -8,7 +8,6 @@ const navItems = [
   { name: "Skills", href: "#skills" },
   { name: "Work", href: "#work" },
   { name: "Stats", href: "#stats" },
-  { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -48,7 +47,7 @@ export default function Header() {
           transition={{ duration: 0.6 }}
           className="font-montserrat font-bold text-xl"
         >
-          <span className="text-portfolio-accent">Yash</span> Kumar Singh
+          <span className="text-portfolio-accent">YKS</span>
         </motion.div>
 
         {/* Desktop Navigation */}
