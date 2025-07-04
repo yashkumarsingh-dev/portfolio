@@ -38,7 +38,7 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="https://drive.google.com/uc?export=download&id=11u5-cjCfMw543mIb7nXtAC49zktlUW9I"
+              href="https://drive.google.com/file/d/1T9DFGKT_WOuZAR1r0h1K8SeLZ8u4O2Nh/view?usp=sharing"
               className="px-8 py-3 rounded-full border-2 border-gray-600 text-white font-semibold hover:bg-gray-700 transition shadow-md flex items-center justify-center"
               target="_blank"
               rel="noopener noreferrer"
