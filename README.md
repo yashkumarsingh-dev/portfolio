@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing the work and skills of Yash Kumar Singh, a Full Stack Developer specializing in MERN stack and AI/ML technologies.
 
-## 🌟 Features
+##  Features
 
 ### 🎨 **Modern Design**
 
@@ -30,7 +30,7 @@ A modern, responsive portfolio website showcasing the work and skills of Yash Ku
 - **State Management**: TanStack Query for data fetching and caching
 - **Routing**: Wouter for lightweight client-side routing
 
-## 🚀 Technologies Used
+## Technologies Used
 
 ### **Frontend**
 
@@ -57,7 +57,7 @@ A modern, responsive portfolio website showcasing the work and skills of Yash Ku
 - **Autoprefixer** - CSS vendor prefixing
 - **ESLint/TypeScript** - Code quality and type checking
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Portfolio/
@@ -103,7 +103,7 @@ Portfolio/
 └── vite.config.ts                   # Vite build configuration
 ```
 
-## 🎨 Design System
+##  Design System
 
 ### **Color Palette**
 
@@ -126,7 +126,7 @@ Portfolio/
 - **Navigation**: Smooth underline animations
 - **Forms**: Modern input styling with focus states
 
-## 🚀 Getting Started
+## Getting Started
 
 ### **Prerequisites**
 
@@ -166,7 +166,7 @@ npm run preview      # Preview production build
 npm run check        # TypeScript type checking
 ```
 
-## 📱 Responsive Design
+## Responsive Design
 
 The portfolio is fully responsive with breakpoints:
 
@@ -181,7 +181,7 @@ The portfolio is fully responsive with breakpoints:
 - Stacked layouts for small screens
 - Optimized typography scaling
 
-## 🎯 Key Features
+## Key Features
 
 ### **Performance Optimizations**
 
@@ -227,7 +227,7 @@ Update the following files to customize your portfolio:
 - `tsconfig.json` - TypeScript configuration
 - `package.json` - Dependencies and scripts
 
-## 📧 Contact Integration
+## Contact Integration
 
 The contact form uses **Formspree** for email handling:
 
@@ -235,7 +235,7 @@ The contact form uses **Formspree** for email handling:
 - Automatic form validation and error handling
 - Spam protection and email delivery
 
-## 🚀 Deployment
+##  Deployment
 
 ### **GitHub Pages Deployment**
 
