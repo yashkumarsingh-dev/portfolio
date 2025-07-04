@@ -237,17 +237,37 @@ The contact form uses **Formspree** for email handling:
 
 ## 🚀 Deployment
 
-### **Build for Production**
+### **GitHub Pages Deployment**
+
+This portfolio is configured for automatic deployment to GitHub Pages.
+
+#### **Automatic Deployment (Recommended)**
+
+1. Push your changes to the `main` branch
+2. GitHub Actions will automatically build and deploy your site
+3. Your site will be available at: `https://yashkumarsingh-dev.github.io/portfolio/`
+
+#### **Manual Deployment**
 
 ```bash
+# Build the project
 npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
-### **Deployment Options**
+#### **GitHub Pages Configuration**
+
+1. Go to your repository settings on GitHub
+2. Navigate to "Pages" in the sidebar
+3. Set source to "GitHub Actions"
+4. Your site will be deployed automatically on each push to main
+
+### **Other Deployment Options**
 
 - **Vercel**: Automatic deployment from Git
 - **Netlify**: Drag and drop deployment
-- **GitHub Pages**: Static site hosting
 - **Firebase Hosting**: Google's hosting platform
 
 ## 📄 License
@@ -264,7 +284,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Contact
 
-**Yash Kumar Singh**
----
+## **Yash Kumar Singh**
 
 **Built using React, TypeScript, and Tailwind CSS**

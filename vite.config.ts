@@ -23,13 +23,12 @@ export default defineConfig({
       "@shared": path.resolve(import.meta.dirname, "shared"),
       "@server": path.resolve(import.meta.dirname, "server"),
       "@client": path.resolve(import.meta.dirname, "client"),
-      
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
+  base: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
-    
     emptyOutDir: true,
   },
   server: {
