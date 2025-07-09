@@ -28,16 +28,16 @@ const projects = [
     github: "https://github.com/yashkumarsingh-dev/military-assets",
   },
   {
-    title: "Forest Fire Detection",
-    period: "01/2023–05/2023",
+    title: "Password Manager SaaS",
+    period: "06/2025–07/2025",
     description:
-      "Python-based machine learning system that predicts forest fire likelihood using environmental factors like temperature, humidity, and oxygen levels.",
+      "A secure full-stack SaaS app for managing and storing passwords. Built with the MERN stack, featuring JWT authentication, encrypted storage, and Razorpay integration. Deployed using Vercel and Railway with MongoDB Atlas to ensure performance, scalability, and data security.",
     image:
-      "https://images.unsplash.com/photo-1511027643875-5cbb0439c8f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwZmlyZXxlbnwwfHwwfHx8MA%3D%3D",
-    technologies: ["Python", "Machine Learning", "Environmental"],
+      "https://images.pexels.com/photos/32871420/pexels-photo-32871420.jpeg",
+    technologies: ["MERN", "MongoDb Atlas", "Razorpay"],
     gradient: "from-green-500 to-portfolio-accent",
     badgeColor: "bg-green-500/20 text-green-400",
-    github: "",
+    github: "https://github.com/yashkumarsingh-dev/password-manager-saas",
   },
 ];
 
