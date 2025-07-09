@@ -41,7 +41,6 @@ const projects = [
   },
 ];
 
-
 export default function Work() {
   // Dummy intersection observer for animation only
   const [ref, isIntersecting] = [null, true];
