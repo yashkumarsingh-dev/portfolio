@@ -40,7 +40,6 @@ const projects = [
     github: "https://github.com/yashkumarsingh-dev/password-manager-saas",
   },
 ];
-
 export default function Work() {
   // Dummy intersection observer for animation only
   const [ref, isIntersecting] = [null, true];
